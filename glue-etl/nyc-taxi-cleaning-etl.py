@@ -54,10 +54,6 @@ df = df.withColumn("trip_distance",
 
 cleaned_data = DynamicFrame.fromDF(df, glueContext, "cleaned_data")
 
-# cleaned_data = Filter.apply(
-#     frame= dynamic_frame,
-#     f= lambda x: (x["total_amount"] > 0 and x["total_amount"] is not None)
-#     )
 
 #write data to s3
 glueContext.write_dynamic_frame.from_options(
